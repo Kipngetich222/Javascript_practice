@@ -22,6 +22,8 @@ for (let i = 0; i< companies.length; i++) {
 companies.forEach((company => {
     // console.log(company.name);
 }))
+// const camp= companies.forEach(company => console.log(company));
+
 
 //filter
 
@@ -64,5 +66,7 @@ const lastTenYears = companies.filter(company => (company.end - company.Start) >
 console.log(lastTenYears);
 
 //map
+
+
 //sort
 //reduce
