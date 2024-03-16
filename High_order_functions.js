@@ -63,10 +63,87 @@ companies.forEach((company => {
 //Get companies that lasted more than 10 years
 
 const lastTenYears = companies.filter(company => (company.end - company.Start) > 10)
-console.log(lastTenYears);
+// console.log(lastTenYears);
 
 //map
+//create array of company names
+// const companyNames = companies.map(company => company.name)
+// console.log(companyNames);
 
+// const test = companies.map((company) => {
+//     return `${company.name} [${company.Start} - ${company.end}]`
+// })
+// console.log(test);
+
+// const agesSquare = ages.map(age => Math.sqrt(age));
+// const agesTimetwo = ages.map(age => age * 2);
+// console.log(agesTimetwo);
+
+// const agesMap = ages
+// .map(age => Math.sqrt(age))
+// .map(age => age * 2);
+// console.log(agesMap);
 
 //sort
+//sort companies by start year
+// const sortedCompanies = companies.sort(function (c1, c2) {
+//     if (c1.Start > c2.Start) {
+//         return 1
+//     } else {
+//         return-1
+//     }
+// });
+
+//using es6 and ternary operator
+const sortedCompanies = companies.sort((a ,b) => (a.Start > b.Start ? 1 : -1));
+
+// console.log(sortedCompanies);
+
+//sort ages ascending
+// const sortAges = ages.sort((a ,b) => a-b);
+// console.log(sortAges);
+
+//sort ages descending
+// const sortdAges = ages.sort((a ,b) => b-a);
+// console.log(sortdAges);
+
+
 //reduce
+
+//older way
+// let ageSum = 0;
+// for (let i = 0; i < ages.length; i++) {
+//     ageSum += ages[i];
+    
+// }
+// console.log(ageSum);
+
+// using reduse
+// const ageSum = ages.reduce(function (total, age) {
+//     return total + age;
+// }, 0);
+
+//using arrow functions
+// const ageSum = ages.reduce((total, age) => total + age, 0);
+
+// console.log(ageSum);
+
+//total years for all companies
+// const totalYears = companies.reduce( function (total, company) {
+//     return total + (company.end - company.Start)
+// }, 0);
+
+//using arrow functions
+// const totalYears = companies.reduce( (total, company) => total + (company.end - company.Start)
+// , 0);
+// console.log(totalYears);
+
+
+//combine methods
+const combine = ages
+.map(age => age * 2)
+.filter(age => age >=40)
+.sort((a, b)=> a-b)
+.reduce((a, b)=> a+ b, 0)
+
+console.log(combine);
