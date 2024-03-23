@@ -39,3 +39,23 @@ dataView.setUint32(0, 42,true);
 let value = dataView.getUint32(0, true);
 
 console.log(value);
+
+
+//------------------dataview other example--------------------------------
+
+function toBinary(x,{type = "Float64", LittleEndian= false, separator = " ", radix = 16 } = {},) {
+    const bytesNeeded = globalThis[`${type}Array`].BYTES_PER_ELEMENT;
+    const dv = new DataView(new ArrayBuffer(bytesNeeded));
+    dv[`set${type}`](0,x,LittleEndian);
+    const bytes = Array.from({length: bytesNeeded }, (_, i) =>
+    dv
+    .getUint8(i)
+    .toString(radix)
+    .padStart(8 / Math.log2(radix), "0"),
+    );
+    return bytes.join(separator);
+}
+
+console.log(toBinary(1.1));
+console.log(toBinary(1.1, {LittleEndian: true}));
+console.log(toBinary(20, {type: "Int8", radix: 2}));
