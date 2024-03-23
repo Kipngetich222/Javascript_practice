@@ -25,3 +25,17 @@ int32View[0] = 43;
 
 //accessing the view
 console.log(int32View[0]);
+
+//--------------DataView-----------------
+
+//creating a dataview
+let buffer1 = new ArrayBuffer(4); //4bytes
+let dataView = new DataView(buffer1);
+
+//writing to datavew
+dataView.setUint32(0, 42,true); 
+
+//reading from dataview
+let value = dataView.getUint32(0, true);
+
+console.log(value);
