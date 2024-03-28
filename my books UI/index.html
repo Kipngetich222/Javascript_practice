@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Books</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <h1>My Books</h1>
+    </header>
+    <main>
+        <div id="bookContainer" class="grid-container"></div>
+        <button id="addBookBtn">Add Book</button>
+        <div id="filter">
+            <input type="text" id="filterInput" placeholder="Search by ID or Name">
+            <button id="filterBtn">Filter</button>
+        </div>
+    </main>
+
+    <!--  books -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Add Book</h2>
+            <form id="bookForm">
+                <label for="bookName">Book Name:</label>
+                <input type="text" id="bookName" required>
+                <label for="bookImage">Image URL:</label>
+                <input type="text" id="bookImage" required>
+                <button type="submit" id="saveBookBtn">Save</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
