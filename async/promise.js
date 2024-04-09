@@ -32,8 +32,7 @@ const fetchPromise1 = fetch(
           if (!response.ok) {
             throw new Error(`HTTP error: ${response.status}`);
           }
-          // after this line, our function will wait for the `response.json()` call to be settled
-          // the `response.json()` call will either return the parsed JSON object or throw an error
+          
           const data = await response.json();
           console.log(data[0].name);
         } catch (error) {
