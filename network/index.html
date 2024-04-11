@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SHA-256 Hash Calculation</title>
+</head>
+<body>
+    <button id="calculateButton">Calculate SHA-256 Hash</button>
+    <p id="result"></p>
+
+    <script>
+        const button = document.getElementById("calculateButton");
+        const resultSpan = document.getElementById("result");
+
+        button.addEventListener("click", function() {
+            const worker = new Worker("sha256Worker.js");
+            worker.postMessage("file.txt"); // Replace with actual file path
+
+            worker.onmessage = function(event) {
+                const hash = event.data;
+                resultSpan.textContent = "SHA-256 Hash: " + hash;
+            };
+        });
+    </script>
+</body>
+</html>
